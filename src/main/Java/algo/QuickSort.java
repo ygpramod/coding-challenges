@@ -1,4 +1,4 @@
-package challenge;
+package algo;
 
 public class QuickSort {
 
