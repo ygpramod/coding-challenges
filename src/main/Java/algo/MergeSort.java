@@ -1,14 +1,14 @@
 package algo;
 
 public class MergeSort {
-    public int[] splitAndMerge(int[] array) {
+    public int[] sort(int[] array) {
         var length = array.length;
         if (length == 1)
             return array;
 
         var mid = (length - 1) / 2;
-        var left = splitAndMerge(split(array, 0, mid));
-        var right = splitAndMerge(split(array, mid + 1, length - 1));
+        var left = sort(split(array, 0, mid));
+        var right = sort(split(array, mid + 1, length - 1));
 
         return merge(left, right);
     }
