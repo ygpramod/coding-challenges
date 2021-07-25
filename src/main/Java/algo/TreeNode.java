@@ -28,4 +28,17 @@ public class TreeNode {
     public void setRight(TreeNode right) {
         this.right = right;
     }
+
+    public TreeNode invert() {
+        TreeNode temp = left;
+        left = right;
+        right = temp;
+
+        if(left != null)
+            left.invert();
+        if(right != null)
+            right.invert();
+
+        return this;
+    }
 }
