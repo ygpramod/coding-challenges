@@ -33,7 +33,7 @@ class BinaryTreeTest {
     @Test
     @DisplayName("Construct using PreOrder and InOrder List with 11 elements")
     void preAndInOrderList3() {
-        TreeNode tree = binaryTree.fromPreAndInOrderList(List.of(1,2,4,8,9,5,10,11,3,6,7), List.of(8,4,9,2,10,5,11,1,6,3,7));
+        TreeNode tree = binaryTree.fromPreAndInOrderList(List.of(1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 7), List.of(8, 4, 9, 2, 10, 5, 11, 1, 6, 3, 7));
         assertThat(tree.getValue()).isEqualTo(1);
         assertThat(tree.getLeft().getValue()).isEqualTo(2);
         assertThat(tree.getRight().getValue()).isEqualTo(3);
@@ -70,7 +70,7 @@ class BinaryTreeTest {
     @Test
     @DisplayName("Invert Binary tree with 11 nodes")
     void invert3() {
-        TreeNode tree = binaryTree.fromPreAndInOrderList(List.of(1,2,4,8,9,5,10,11,3,6,7), List.of(8,4,9,2,10,5,11,1,6,3,7)).invert();
+        TreeNode tree = binaryTree.fromPreAndInOrderList(List.of(1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 7), List.of(8, 4, 9, 2, 10, 5, 11, 1, 6, 3, 7)).invert();
         assertThat(tree.getValue()).isEqualTo(1);
         assertThat(tree.getRight().getValue()).isEqualTo(2);
         assertThat(tree.getLeft().getValue()).isEqualTo(3);
@@ -82,5 +82,41 @@ class BinaryTreeTest {
         assertThat(tree.getRight().getLeft().getLeft().getValue()).isEqualTo(11);
         assertThat(tree.getLeft().getRight().getValue()).isEqualTo(6);
         assertThat(tree.getLeft().getLeft().getValue()).isEqualTo(7);
+    }
+
+    @Test
+    @DisplayName("Binary Search Tree with PreOrder List of 3 levels")
+    void binarySearchTree1() {
+        TreeNode tree = binaryTree.binarySearchTreeFromPreOrderList(List.of(5, 3, 1, 4, 8, 6, 9));
+        assertThat(tree.getValue()).isEqualTo(5);
+        assertThat(tree.getLeft().getValue()).isEqualTo(3);
+        assertThat(tree.getLeft().getLeft().getValue()).isEqualTo(1);
+        assertThat(tree.getLeft().getRight().getValue()).isEqualTo(4);
+        assertThat(tree.getRight().getValue()).isEqualTo(8);
+        assertThat(tree.getRight().getLeft().getValue()).isEqualTo(6);
+        assertThat(tree.getRight().getRight().getValue()).isEqualTo(9);
+    }
+
+    @Test
+    @DisplayName("Binary Search Tree with PreOrder List of 4 levels")
+    void binarySearchTree3() {
+        TreeNode tree = binaryTree.binarySearchTreeFromPreOrderList(List.of(25,20,10,5,12,22,36,30,28,40,38,48));
+        assertThat(tree.getValue()).isEqualTo(25);
+
+        assertThat(tree.getLeft().getValue()).isEqualTo(20);
+        assertThat(tree.getRight().getValue()).isEqualTo(36);
+
+        assertThat(tree.getLeft().getLeft().getValue()).isEqualTo(10);
+        assertThat(tree.getLeft().getRight().getValue()).isEqualTo(22);
+        assertThat(tree.getRight().getLeft().getValue()).isEqualTo(30);
+        assertThat(tree.getRight().getRight().getValue()).isEqualTo(40);
+
+        assertThat(tree.getLeft().getLeft().getLeft().getValue()).isEqualTo(5);
+        assertThat(tree.getLeft().getLeft().getRight().getValue()).isEqualTo(12);
+
+        assertThat(tree.getRight().getLeft().getLeft().getValue()).isEqualTo(28);
+        assertThat(tree.getRight().getRight().getLeft().getValue()).isEqualTo(38);
+        assertThat(tree.getRight().getRight().getRight().getValue()).isEqualTo(48);
+
     }
 }
